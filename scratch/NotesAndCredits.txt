@@ -1,0 +1,14 @@
+Design and coding by Ruud Helderman, January-April 2015.
+
+Spaceship created with Blender (http://www.blender.org). All other graphics created with GIMP (http://www.gimp.org).
+All sound effects created with SoX (http://sox.sourceforge.net).
+Code based on Ruud's award-winning i-mode game 'Space Tunnel' (http://www.dojadragon.com/?doc=st).
+Gameplay inspired by 'Master of the Lamps' and 'Aliens: The Computer Game', two games published by Activision in the mid 1980s, both of which featured a similar 'ride through the hoops'.
+
+Thanks to devvv for the tutorial to create a starry background:
+http://www.gimpusers.com/tutorials/starfield-tutorial
+Thanks to Penguin Pete for the tutorial to create metallic text:
+http://penguinpetes.com/b2evo/index.php?title=gimp_tutorial_metallic_text
+
+Thanks to all you scratchers for the luvs, favs and kind words.
+Thanks @HEAVENBRAND for curating the game (April 26); amazing to be on the front page!

@@ -1,0 +1,6 @@
+Use the arrow keys or mouse to pilot your ship through the long and winding tunnel in space. This will become increasingly difficult as the bends become sharper with each stage cleared. Points are awarded for the distance traveled. Leaving the tunnel means game over!
+
+Click button 'setup' to configure keyboard/mouse controls. The higher a value, the more sensitive the ship responds (good for experienced players). Zero disables the control method (especially useful for 'mouse follow'). A negative value reverses controls (I use this all the time on 'keyboard y' to get a more joystick-like feel).
+
+iPad users: play the game on Phosphorus! Just swipe to steer.
+http://phosphorus.github.io/#45921906
