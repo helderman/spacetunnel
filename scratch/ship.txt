@@ -1,0 +1,47 @@
+Ship
+
+
+when flag clicked
+hide
+
+
+when I receive [explode v]
+hide
+
+
+when I receive [paint v]
+if <(y position) < [1]> then
+    point in direction ((90) + (([x position v] of [steering v]) / (5)))
+    switch costume to ((4) + (([y position v] of [steering v]) / (35)))
+end
+
+
+when I receive [tunnel to back v]
+go to front
+
+
+when I receive [game on v]
+hide
+go to front
+switch costume to [ship1 v]
+go to x:(0) y:(190)
+point in direction (90 v)
+set volume to (sound volume)%
+play sound [approach v]
+wait (0.5) secs
+show
+glide (2) secs to x:(0) y:(10)
+broadcast [pull up v]
+glide (0.5) secs to x:(0) y:(0)
+change [state v] by (1)
+
+
+when I receive [enter stage v]
+say (join [Stage ] (stage)) for (3) secs
+
+
+when I receive [pull up v]
+repeat (3)
+    next costume
+    wait (0.1) secs
+end

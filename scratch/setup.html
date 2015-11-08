@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf8">
+<title>Setup</title>
+
+<!--
+http://scratchblocks.github.io/generator/
+
+Copyright 2013, Tim Radvan
+@license MIT
+http://opensource.org/licenses/MIT
+-->
+
+<link rel="stylesheet" href="scratchblocks2/scratchblocks2.css">
+
+</head><body>
+<h1>Setup</h1>
+
+<p>
+<img src="../gimp/setup.png" />
+<img src="../gimp/close.png" />
+</p>
+
+<div>
+<a href="http://scratchblocks.github.io/#when%20this%20sprite%20clicked%0Aif%20%3C(state)%20%3D%20%5B2%5D%3E%20then%0A%20%20%20%20if%20%3C(costume%20%23)%20%3D%20%5B1%5D%3E%20then%0A%20%20%20%20%20%20%20%20next%20costume%0A%20%20%20%20%20%20%20%20broadcast%20%5Bhide%20title%20v%5D%0A%20%20%20%20else%0A%20%20%20%20%20%20%20%20broadcast%20%5Bshow%20title%20v%5D%0A%20%20%20%20end%0Aend%0A%0A%0Awhen%20I%20receive%20%5Bshow%20title%20v%5D%0Ahide%20settings%0Aswitch%20costume%20to%20%5Bsetup%20v%5D%0Ashow%0A%0A%0Awhen%20I%20receive%20%5Bhide%20title%20v%5D%0Ashow%20settings%0A%0A%0Awhen%20I%20receive%20%5Bgame%20on%20v%5D%0Ahide%20settings%0Ahide%0A%0A%0Awhen%20I%20receive%20%5Btunnel%20to%20back%20v%5D%0Ago%20to%20front%0A%0A%0Adefine%20hide%20settings%0Ahide%20variable%20%5Bkeyboard%20x%20v%5D%0Ahide%20variable%20%5Bkeyboard%20y%20v%5D%0Ahide%20variable%20%5Bmouse%20drag%20x%20v%5D%0Ahide%20variable%20%5Bmouse%20drag%20y%20v%5D%0Ahide%20variable%20%5Bmouse%20follow%20x%20v%5D%0Ahide%20variable%20%5Bmouse%20follow%20y%20v%5D%0Ahide%20variable%20%5Bsound%20volume%20v%5D%0A%0A%0Adefine%20show%20settings%0Ashow%20variable%20%5Bkeyboard%20x%20v%5D%0Ashow%20variable%20%5Bkeyboard%20y%20v%5D%0Ashow%20variable%20%5Bmouse%20drag%20x%20v%5D%0Ashow%20variable%20%5Bmouse%20drag%20y%20v%5D%0Ashow%20variable%20%5Bmouse%20follow%20x%20v%5D%0Ashow%20variable%20%5Bmouse%20follow%20y%20v%5D%0Ashow%20variable%20%5Bsound%20volume%20v%5D">Scratchblocks URL</a>
+</div>
+<div>
+<a href="setup.txt">Scratchblocks generated textual code</a>
+</div>
+
+<pre class="blocks"><div class="sb2">
+<div class="script"><div class="hat events">when this sprite clicked</div><div class="cwrap"><div class="stack control cstart">if <div class="boolean operators"><div class="reporter variables">state</div> = <div class="string">2</div></div> then</div><div class="cmouth control"><div class="cwrap"><div class="stack control cstart">if <div class="boolean operators"><div class="reporter looks">costume #</div> = <div class="string">1</div></div> then</div><div class="cmouth control"><div class="stack looks">next costume</div><div class="stack events">broadcast <div class="dropdown">hide title</div></div></div><div class="stack control celse">else</div><div class="cmouth control"><div class="stack events">broadcast <div class="dropdown">show title</div></div></div><div class="stack control cend"></div></div></div><div class="stack control cend"></div></div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">show title</div></div><div class="stack custom">hide settings</div><div class="stack looks">switch costume to <div class="dropdown">setup</div></div><div class="stack looks">show</div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">hide title</div></div><div class="stack custom">show settings</div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">game on</div></div><div class="stack custom">hide settings</div><div class="stack looks">hide</div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">tunnel to back</div></div><div class="stack looks">go to front</div></div>
+<div class="script"><div class="define-hat custom">define<div class="outline">hide settings</div></div><div class="stack variables">hide variable <div class="dropdown">keyboard x</div></div><div class="stack variables">hide variable <div class="dropdown">keyboard y</div></div><div class="stack variables">hide variable <div class="dropdown">mouse drag x</div></div><div class="stack variables">hide variable <div class="dropdown">mouse drag y</div></div><div class="stack variables">hide variable <div class="dropdown">mouse follow x</div></div><div class="stack variables">hide variable <div class="dropdown">mouse follow y</div></div><div class="stack variables">hide variable <div class="dropdown">sound volume</div></div></div>
+<div class="script"><div class="define-hat custom">define<div class="outline">show settings</div></div><div class="stack variables">show variable <div class="dropdown">keyboard x</div></div><div class="stack variables">show variable <div class="dropdown">keyboard y</div></div><div class="stack variables">show variable <div class="dropdown">mouse drag x</div></div><div class="stack variables">show variable <div class="dropdown">mouse drag y</div></div><div class="stack variables">show variable <div class="dropdown">mouse follow x</div></div><div class="stack variables">show variable <div class="dropdown">mouse follow y</div></div><div class="stack variables">show variable <div class="dropdown">sound volume</div></div></div>
+</div></pre>
+
+</body></html>

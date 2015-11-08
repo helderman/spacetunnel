@@ -1,0 +1,51 @@
+Setup
+
+
+when this sprite clicked
+if <(state) = [2]> then
+    if <(costume #) = [1]> then
+        next costume
+        broadcast [hide title v]
+    else
+        broadcast [show title v]
+    end
+end
+
+
+when I receive [show title v]
+hide settings
+switch costume to [setup v]
+show
+
+
+when I receive [hide title v]
+show settings
+
+
+when I receive [game on v]
+hide settings
+hide
+
+
+when I receive [tunnel to back v]
+go to front
+
+
+define hide settings
+hide variable [keyboard x v]
+hide variable [keyboard y v]
+hide variable [mouse drag x v]
+hide variable [mouse drag y v]
+hide variable [mouse follow x v]
+hide variable [mouse follow y v]
+hide variable [sound volume v]
+
+
+define show settings
+show variable [keyboard x v]
+show variable [keyboard y v]
+show variable [mouse drag x v]
+show variable [mouse drag y v]
+show variable [mouse follow x v]
+show variable [mouse follow y v]
+show variable [sound volume v]

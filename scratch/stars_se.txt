@@ -1,0 +1,5 @@
+Stars SE
+
+
+when I receive [paint v]
+go to x:((460) - (((ship direction x) + (460)) mod (920))) y:((340) - (((ship direction y) + (340)) mod (680)))

@@ -1,1 +1,52 @@
-http://scratchblocks.github.io/#when%20green%20flag%20clicked%0Abroadcast%20[create%20tunnel%20v]%20and%20wait%0Abroadcast%20[tunnel%20to%20back%20v]%0Aset%20[state%20v]%20to%20[0]%0Aforever%0A%20%20%20%20if%20%3C%28state%29%20%3C%20[2]%3E%20then%0A%20%20%20%20%20%20%20%20set%20[ship%20direction%20x%20v]%20to%20[0]%0A%20%20%20%20%20%20%20%20set%20[ship%20direction%20y%20v]%20to%20[0]%0A%20%20%20%20%20%20%20%20set%20[ship%20position%20x%20v]%20to%20[0]%0A%20%20%20%20%20%20%20%20set%20[ship%20position%20y%20v]%20to%20[0]%0A%20%20%20%20%20%20%20%20if%20%3C%28state%29%20%3D%20[0]%3E%20then%0A%20%20%20%20%20%20%20%20%20%20%20%20broadcast%20[show%20title%20v]%0A%20%20%20%20%20%20%20%20else%0A%20%20%20%20%20%20%20%20%20%20%20%20broadcast%20[hide%20title%20v]%0A%20%20%20%20%20%20%20%20%20%20%20%20broadcast%20[game%20on%20v]%0A%20%20%20%20%20%20%20%20end%0A%20%20%20%20%20%20%20%20change%20[state%20v]%20by%20%282%29%0A%20%20%20%20%20%20%20%20broadcast%20[clear%20tunnel%20v]%20and%20wait%0A%20%20%20%20end%0A%20%20%20%20set%20[last%20time%20v]%20to%20%28time%29%0A%20%20%20%20set%20[time%20v]%20to%20%28timer%29%0A%20%20%20%20if%20%3C%28state%29%20%3C%20[3]%3E%20then%0A%20%20%20%20%20%20%20%20set%20[ship%20position%20x%20v]%20to%20%28%28%28[abs%20v]%20of%20%28%28%28time%29%20mod%20%2848%29%29%20-%20%2824%29%29%29%20-%20%2812%29%29%20*%20%2830%29%29%0A%20%20%20%20%20%20%20%20set%20[ship%20position%20y%20v]%20to%20%28%28%28[abs%20v]%20of%20%28%28%28%28time%29%20*%20%280.93%29%29%20mod%20%2848%29%29%20-%20%2824%29%29%29%20-%20%2812%29%29%20*%20%2830%29%29%0A%20%20%20%20else%0A%20%20%20%20%20%20%20%20broadcast%20[steering%20v]%20and%20wait%0A%20%20%20%20end%0A%20%20%20%20broadcast%20[pass%20v]%0A%20%20%20%20broadcast%20[paint%20v]%20and%20wait%0Aend%0A%0A%0Awhen%20I%20receive%20[clear%20tunnel%20v]%0Areset%20timer%0Aset%20[time%20v]%20to%20[0]%0Aset%20[front%20hoop%20v]%20to%20[8]%0Aset%20[tunnel%20position%20x%20v]%20to%20[0]%0Aset%20[tunnel%20position%20y%20v]%20to%20[0]%0Aset%20[tunnel%20direction%20x%20v]%20to%20[0]%0Aset%20[tunnel%20direction%20y%20v]%20to%20[0]%0Aset%20[tunnel%20bend%20x%20v]%20to%20[0]%0Aset%20[tunnel%20bend%20y%20v]%20to%20[0]%0Ashow%20variable%20[SCORE%20v]%0Ashow%20variable%20[HIGH%20SCORE%20v]%0A%0A%0Awhen%20I%20receive%20[explode%20v]%0Await%20%285%29%20secs%0Aset%20[state%20v]%20to%20[0]
+Stage
+
+
+when flag clicked
+broadcast [create tunnel v] and wait
+broadcast [tunnel to back v]
+set [state v] to [0]
+forever
+    if <(state) < [2]> then
+        set [ship direction x v] to [0]
+        set [ship direction y v] to [0]
+        set [ship position x v] to [0]
+        set [ship position y v] to [0]
+        if <(state) = [0]> then
+            broadcast [show title v]
+        else
+            broadcast [hide title v]
+            broadcast [game on v]
+        end
+        change [state v] by (2)
+        broadcast [clear tunnel v] and wait
+    end
+    set [last time v] to (time)
+    set [time v] to (timer)
+    if <(state) < [3]> then
+        set [ship position x v] to ((([abs v] of (((time) mod (48)) - (24))) - (12)) * (30))
+        set [ship position y v] to ((([abs v] of ((((time) * (0.93)) mod (48)) - (24))) - (12)) * (30))
+    else
+        broadcast [steering v] and wait
+    end
+    broadcast [pass v]
+    broadcast [paint v] and wait
+end
+
+
+when I receive [clear tunnel v]
+reset timer
+set [time v] to [0]
+set [front hoop v] to [8]
+set [tunnel position x v] to [0]
+set [tunnel position y v] to [0]
+set [tunnel direction x v] to [0]
+set [tunnel direction y v] to [0]
+set [tunnel bend x v] to [0]
+set [tunnel bend y v] to [0]
+show variable [SCORE v]
+show variable [HIGH SCORE v]
+
+
+when I receive [explode v]
+wait (5) secs
+set [state v] to [0]

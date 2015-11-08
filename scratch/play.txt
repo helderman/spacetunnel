@@ -1,0 +1,17 @@
+Play
+
+
+when I receive [show title v]
+go to front
+show
+
+
+when I receive [tunnel to back v]
+go to front
+
+
+when this sprite clicked
+hide
+set [state v] to [1]
+set [stage v] to [0]
+set [SCORE v] to [0]

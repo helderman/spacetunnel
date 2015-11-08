@@ -1,0 +1,100 @@
+Hoop
+
+
+when I receive [create tunnel v]
+set [ghost v] effect to (100)
+go to front
+point in direction (45 v)
+set [time initializer v] to [15.5]
+repeat (15)
+    create clone of [myself v]
+    turn ccw (90) degrees
+    change [time initializer v] by (-0.5)
+end
+
+
+when I receive [clear tunnel v]
+set [hoop position x v] to [0]
+set [hoop position y v] to [0]
+set [hoop direction x v] to [0]
+set [hoop direction y v] to [0]
+set [time to reach ship v] to (time initializer)
+set [ghost v] effect to (100)
+show
+set volume to (sound volume)%
+
+
+when I receive [paint v]
+paint hoop from ship ((time to reach ship) - (time))
+
+
+define paint hoop from cam (time to cam) and ship (time to ship)
+set size to ((50) / (time to cam))%
+if <(time to ship) > [0]> then
+    set [ghost v] effect to ((14) * (time to ship))
+else
+    set [ghost v] effect to ((-450) * (time to ship))
+end
+go to x:((((hoop position x) - (ship position x)) - ((ship direction x) * (time to ship))) / (time to cam)) y:((((hoop position y) - (ship position y)) - ((ship direction y) * (time to ship))) / (time to cam))
+
+
+define paint hoop from ship (time to ship)
+paint hoop from cam ((0.6) + (time to ship)) and ship (time to ship)
+
+
+define pass ship (time to ship)
+if <<(time to reach ship) = (front hoop)> and <(time to ship) < [0]>> then
+    change [front hoop v] by (0.5)
+    touch ship (((hoop position x) - (ship position x)) - ((hoop direction x) * (time to ship))) (((hoop position y) - (ship position y)) - ((hoop direction y) * (time to ship)))
+end
+if <<(time to reach ship) < (front hoop)> and <(time to ship) < [-0.2]>> then
+    change [time to reach ship v] by (8)
+    set [hoop position x v] to (tunnel position x)
+    set [hoop position y v] to (tunnel position y)
+    set [hoop direction x v] to (tunnel direction x)
+    set [hoop direction y v] to (tunnel direction y)
+    broadcast [tunnel to back v] and wait
+    go back (0) layers
+    calculate bend
+end
+
+
+when I receive [pass v]
+pass ship ((time to reach ship) - (time))
+
+
+define calculate bend
+if <<(state) > [3]> and <((SCORE) mod (5)) = [1]>> then
+    if <((SCORE) mod (100)) > [85]> then
+        set [tunnel bend x v] to [0]
+        set [tunnel bend y v] to [0]
+    else
+        set [tunnel bend x v] to (((6) + ((12) * (stage))) * (pick random (-1) to (1)))
+        set [tunnel bend y v] to (((6) + ((12) * (stage))) * (pick random (-1) to (1)))
+    end
+end
+change [tunnel direction x v] by (tunnel bend x)
+change [tunnel direction y v] by (tunnel bend y)
+change [tunnel position x v] by ((0.5) * (tunnel direction x))
+change [tunnel position y v] by ((0.5) * (tunnel direction y))
+
+
+define touch ship (difference x) (difference y)
+if <(state) = [4]> then
+    if <(((difference x) * (difference x)) + ((difference y) * (difference y))) < [6000]> then
+        play sound [pass v]
+        change [SCORE v] by (1)
+        if <(HIGH SCORE) < (SCORE)> then
+            set [HIGH SCORE v] to (SCORE)
+        end
+        if <((SCORE) mod (100)) = [3]> then
+            change [stage v] by (1)
+            broadcast [enter stage v]
+        end
+        go to front
+    else
+        play sound [explosion v]
+        set [state v] to [5]
+        broadcast [explode v]
+    end
+end

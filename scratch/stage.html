@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf8">
+<title>Stage</title>
+
+<!--
+http://scratchblocks.github.io/generator/
+
+Copyright 2013, Tim Radvan
+@license MIT
+http://opensource.org/licenses/MIT
+-->
+
+<link rel="stylesheet" href="scratchblocks2/scratchblocks2.css">
+
+</head><body>
+<h1>Stage</h1>
+
+Variables:
+<ul>
+<li>HIGH SCORE</li>
+<li>SCORE</li>
+<li>front hoop</li>
+<li>keyboard x</li>
+<li>keyboard y</li>
+<li>last time</li>
+<li>mouse drag x</li>
+<li>mouse drag y</li>
+<li>mouse follow x</li>
+<li>mouse follow y</li>
+<li>ship direction x</li>
+<li>ship direction y</li>
+<li>ship position x</li>
+<li>ship position y</li>
+<li>sound volume</li>
+<li>stage</li>
+<li>state</li>
+<li>time</li>
+<li>tunnel bend x</li>
+<li>tunnel bend y</li>
+<li>tunnel direction x</li>
+<li>tunnel direction y</li>
+<li>tunnel position x</li>
+<li>tunnel position y</li>
+</ul>
+<p>
+The first two variables have been made visible;
+SCORE at the top left, HIGH SCORE at the top right.
+</p>
+
+<div>
+<a href="http://scratchblocks.github.io/#when%20flag%20clicked%0Abroadcast%20%5Bcreate%20tunnel%20v%5D%20and%20wait%0Abroadcast%20%5Btunnel%20to%20back%20v%5D%0Aset%20%5Bstate%20v%5D%20to%20%5B0%5D%0Aforever%0A%20%20%20%20if%20%3C(state)%20%3C%20%5B2%5D%3E%20then%0A%20%20%20%20%20%20%20%20set%20%5Bship%20direction%20x%20v%5D%20to%20%5B0%5D%0A%20%20%20%20%20%20%20%20set%20%5Bship%20direction%20y%20v%5D%20to%20%5B0%5D%0A%20%20%20%20%20%20%20%20set%20%5Bship%20position%20x%20v%5D%20to%20%5B0%5D%0A%20%20%20%20%20%20%20%20set%20%5Bship%20position%20y%20v%5D%20to%20%5B0%5D%0A%20%20%20%20%20%20%20%20if%20%3C(state)%20%3D%20%5B0%5D%3E%20then%0A%20%20%20%20%20%20%20%20%20%20%20%20broadcast%20%5Bshow%20title%20v%5D%0A%20%20%20%20%20%20%20%20else%0A%20%20%20%20%20%20%20%20%20%20%20%20broadcast%20%5Bhide%20title%20v%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20broadcast%20%5Bgame%20on%20v%5D%0A%20%20%20%20%20%20%20%20end%0A%20%20%20%20%20%20%20%20change%20%5Bstate%20v%5D%20by%20(2)%0A%20%20%20%20%20%20%20%20broadcast%20%5Bclear%20tunnel%20v%5D%20and%20wait%0A%20%20%20%20end%0A%20%20%20%20set%20%5Blast%20time%20v%5D%20to%20(time)%0A%20%20%20%20set%20%5Btime%20v%5D%20to%20(timer)%0A%20%20%20%20if%20%3C(state)%20%3C%20%5B3%5D%3E%20then%0A%20%20%20%20%20%20%20%20set%20%5Bship%20position%20x%20v%5D%20to%20(((%5Babs%20v%5D%20of%20(((time)%20mod%20(48))%20-%20(24)))%20-%20(12))%20*%20(30))%0A%20%20%20%20%20%20%20%20set%20%5Bship%20position%20y%20v%5D%20to%20(((%5Babs%20v%5D%20of%20((((time)%20*%20(0.93))%20mod%20(48))%20-%20(24)))%20-%20(12))%20*%20(30))%0A%20%20%20%20else%0A%20%20%20%20%20%20%20%20broadcast%20%5Bsteering%20v%5D%20and%20wait%0A%20%20%20%20end%0A%20%20%20%20broadcast%20%5Bpass%20v%5D%0A%20%20%20%20broadcast%20%5Bpaint%20v%5D%20and%20wait%0Aend%0A%0A%0Awhen%20I%20receive%20%5Bclear%20tunnel%20v%5D%0Areset%20timer%0Aset%20%5Btime%20v%5D%20to%20%5B0%5D%0Aset%20%5Bfront%20hoop%20v%5D%20to%20%5B8%5D%0Aset%20%5Btunnel%20position%20x%20v%5D%20to%20%5B0%5D%0Aset%20%5Btunnel%20position%20y%20v%5D%20to%20%5B0%5D%0Aset%20%5Btunnel%20direction%20x%20v%5D%20to%20%5B0%5D%0Aset%20%5Btunnel%20direction%20y%20v%5D%20to%20%5B0%5D%0Aset%20%5Btunnel%20bend%20x%20v%5D%20to%20%5B0%5D%0Aset%20%5Btunnel%20bend%20y%20v%5D%20to%20%5B0%5D%0Ashow%20variable%20%5BSCORE%20v%5D%0Ashow%20variable%20%5BHIGH%20SCORE%20v%5D%0A%0A%0Awhen%20I%20receive%20%5Bexplode%20v%5D%0Await%20(5)%20secs%0Aset%20%5Bstate%20v%5D%20to%20%5B0%5D">Scratchblocks URL</a>
+</div>
+<div>
+<a href="stage.txt">Scratchblocks generated textual code</a>
+</div>
+
+<pre class="blocks"><div class="sb2"><div class="script"><div class="hat events">when <span class="green-flag"><span></span></span> clicked</div><div class="stack events">broadcast <div class="dropdown">create tunnel</div> and wait</div><div class="stack events">broadcast <div class="dropdown">tunnel to back</div></div><div class="stack variables">set <div class="dropdown">state</div> to <div class="string">0</div></div><div class="cwrap cap"><div class="stack control cstart">forever</div><div class="cmouth control"><div class="cwrap"><div class="stack control cstart">if <div class="boolean operators"><div class="reporter variables">state</div> &lt; <div class="string">2</div></div> then</div><div class="cmouth control"><div class="stack variables">set <div class="dropdown">ship direction x</div> to <div class="string">0</div></div><div class="stack variables">set <div class="dropdown">ship direction y</div> to <div class="string">0</div></div><div class="stack variables">set <div class="dropdown">ship position x</div> to <div class="string">0</div></div><div class="stack variables">set <div class="dropdown">ship position y</div> to <div class="string">0</div></div><div class="cwrap"><div class="stack control cstart">if <div class="boolean operators"><div class="reporter variables">state</div> = <div class="string">0</div></div> then</div><div class="cmouth control"><div class="stack events">broadcast <div class="dropdown">show title</div></div></div><div class="stack control celse">else</div><div class="cmouth control"><div class="stack events">broadcast <div class="dropdown">hide title</div></div><div class="stack events">broadcast <div class="dropdown">game on</div></div></div><div class="stack control cend"></div></div><div class="stack variables">change <div class="dropdown">state</div> by <div class="number">2</div></div><div class="stack events">broadcast <div class="dropdown">clear tunnel</div> and wait</div></div><div class="stack control cend"></div></div><div class="stack variables">set <div class="dropdown">last time</div> to <div class="reporter variables">time</div></div><div class="stack variables">set <div class="dropdown">time</div> to <div class="reporter sensing">timer</div></div><div class="cwrap"><div class="stack control cstart">if <div class="boolean operators"><div class="reporter variables">state</div> &lt; <div class="string">3</div></div> then</div><div class="cmouth control"><div class="stack variables">set <div class="dropdown">ship position x</div> to <div class="embedded operators"><div class="embedded operators"><div class="embedded operators"><div class="dropdown">abs</div> of <div class="embedded operators"><div class="embedded operators"><div class="reporter variables">time</div> mod <div class="number">48</div></div> - <div class="number">24</div></div></div> - <div class="number">12</div></div> * <div class="number">30</div></div></div><div class="stack variables">set <div class="dropdown">ship position y</div> to <div class="embedded operators"><div class="embedded operators"><div class="embedded operators"><div class="dropdown">abs</div> of <div class="embedded operators"><div class="embedded operators"><div class="embedded operators"><div class="reporter variables">time</div> * <div class="number">0.93</div></div> mod <div class="number">48</div></div> - <div class="number">24</div></div></div> - <div class="number">12</div></div> * <div class="number">30</div></div></div></div><div class="stack control celse">else</div><div class="cmouth control"><div class="stack events">broadcast <div class="dropdown">steering</div> and wait</div></div><div class="stack control cend"></div></div><div class="stack events">broadcast <div class="dropdown">pass</div></div><div class="stack events">broadcast <div class="dropdown">paint</div> and wait</div></div><div class="stack control cend"></div></div></div></div></pre>
+
+<pre class="blocks"><div class="sb2"><div class="script"><div class="hat events">when I receive <div class="dropdown">clear tunnel</div></div><div class="stack sensing">reset timer</div><div class="stack variables">set <div class="dropdown">time</div> to <div class="string">0</div></div><div class="stack variables">set <div class="dropdown">front hoop</div> to <div class="string">8</div></div><div class="stack variables">set <div class="dropdown">tunnel position x</div> to <div class="string">0</div></div><div class="stack variables">set <div class="dropdown">tunnel position y</div> to <div class="string">0</div></div><div class="stack variables">set <div class="dropdown">tunnel direction x</div> to <div class="string">0</div></div><div class="stack variables">set <div class="dropdown">tunnel direction y</div> to <div class="string">0</div></div><div class="stack variables">set <div class="dropdown">tunnel bend x</div> to <div class="string">0</div></div><div class="stack variables">set <div class="dropdown">tunnel bend y</div> to <div class="string">0</div></div><div class="stack variables">show variable <div class="dropdown">SCORE</div></div><div class="stack variables">show variable <div class="dropdown">HIGH SCORE</div></div></div></div></pre>
+
+<pre class="blocks"><div class="sb2">
+<div class="script"><div class="hat events">when I receive <div class="dropdown">explode</div></div><div class="stack control">wait <div class="number">5</div> secs</div><div class="stack variables">set <div class="dropdown">state</div> to <div class="string">0</div></div></div>
+</div></pre>
+
+</body></html>

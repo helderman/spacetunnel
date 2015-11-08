@@ -1,0 +1,38 @@
+Explosion
+
+
+when flag clicked
+hide
+repeat (39)
+    initialize
+    create clone of [myself v]
+end
+initialize
+
+
+define initialize
+point in direction (pick random (0) to (360))
+set [speed v] to (pick random (60) to (300))
+
+
+when I receive [paint v]
+if <(state) = [5]> then
+    move ((speed) * ((time) - (last time))) steps
+end
+
+
+when I receive [explode v]
+set [brightness v] effect to (100)
+set [ghost v] effect to (0)
+go to x:(0) y:(0)
+go to front
+show
+repeat (10)
+    wait (0.1) secs
+    change [brightness v] effect by (-10)
+end
+repeat (10)
+    wait (0.1) secs
+    change [ghost v] effect by (10)
+end
+hide

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf8">
+<title>Ship</title>
+
+<!--
+http://scratchblocks.github.io/generator/
+
+Copyright 2013, Tim Radvan
+@license MIT
+http://opensource.org/licenses/MIT
+-->
+
+<link rel="stylesheet" href="scratchblocks2/scratchblocks2.css">
+
+</head><body>
+<h1>Ship</h1>
+
+<p>
+The sprite has variables down, left, right, up, but that is probably a mistake;
+these variables were moved to sprite 'steering'.
+</p>
+
+Sounds:
+<ul>
+<li><a href="../sox/approach.wav">approach</a></li>
+</ul>
+
+<p style="overflow:hidden">
+<img style="margin:-120px" src="../blender/ship1.png" />
+<img style="margin:-120px" src="../blender/ship2.png" />
+<img style="margin:-120px" src="../blender/ship3.png" />
+<img style="margin:-120px" src="../blender/ship4.png" />
+<img style="margin:-120px" src="../blender/ship5.png" />
+<img style="margin:-120px" src="../blender/ship6.png" />
+<img style="margin:-120px" src="../blender/ship7.png" />
+</p>
+
+<div>
+<a href="http://scratchblocks.github.io/#when%20flag%20clicked%0Ahide%0A%0A%0Awhen%20I%20receive%20%5Bexplode%20v%5D%0Ahide%0A%0A%0Awhen%20I%20receive%20%5Bpaint%20v%5D%0Aif%20%3C(y%20position)%20%3C%20%5B1%5D%3E%20then%0A%20%20%20%20point%20in%20direction%20((90)%20%2B%20((%5Bx%20position%20v%5D%20of%20%5Bsteering%20v%5D)%20%2F%20(5)))%0A%20%20%20%20switch%20costume%20to%20((4)%20%2B%20((%5By%20position%20v%5D%20of%20%5Bsteering%20v%5D)%20%2F%20(35)))%0Aend%0A%0A%0Awhen%20I%20receive%20%5Btunnel%20to%20back%20v%5D%0Ago%20to%20front%0A%0A%0Awhen%20I%20receive%20%5Bgame%20on%20v%5D%0Ahide%0Ago%20to%20front%0Aswitch%20costume%20to%20%5Bship1%20v%5D%0Ago%20to%20x%3A(0)%20y%3A(190)%0Apoint%20in%20direction%20(90%20v)%0Aset%20volume%20to%20(sound%20volume)%25%0Aplay%20sound%20%5Bapproach%20v%5D%0Await%20(0.5)%20secs%0Ashow%0Aglide%20(2)%20secs%20to%20x%3A(0)%20y%3A(10)%0Abroadcast%20%5Bpull%20up%20v%5D%0Aglide%20(0.5)%20secs%20to%20x%3A(0)%20y%3A(0)%0Achange%20%5Bstate%20v%5D%20by%20(1)%0A%0A%0Awhen%20I%20receive%20%5Benter%20stage%20v%5D%0Asay%20(join%20%5BStage%20%5D%20(stage))%20for%20(3)%20secs%0A%0A%0Awhen%20I%20receive%20%5Bpull%20up%20v%5D%0Arepeat%20(3)%0A%20%20%20%20next%20costume%0A%20%20%20%20wait%20(0.1)%20secs%0Aend">Scratchblocks URL</a>
+</div>
+<div>
+<a href="ship.txt">Scratchblocks generated textual code</a>
+</div>
+
+<pre class="blocks"><div class="sb2">
+<div class="script"><div class="hat events">when <span class="green-flag"><span></span></span> clicked</div><div class="stack looks">hide</div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">explode</div></div><div class="stack looks">hide</div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">paint</div></div><div class="cwrap"><div class="stack control cstart">if <div class="boolean operators"><div class="reporter motion">y position</div> &lt; <div class="string">1</div></div> then</div><div class="cmouth control"><div class="stack motion">point in direction <div class="embedded operators"><div class="number">90</div> + <div class="embedded operators"><div class="embedded sensing"><div class="dropdown">x position</div> of <div class="dropdown">steering</div></div> / <div class="number">5</div></div></div></div><div class="stack looks">switch costume to <div class="embedded operators"><div class="number">4</div> + <div class="embedded operators"><div class="embedded sensing"><div class="dropdown">y position</div> of <div class="dropdown">steering</div></div> / <div class="number">35</div></div></div></div></div><div class="stack control cend"></div></div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">tunnel to back</div></div><div class="stack looks">go to front</div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">game on</div></div><div class="stack looks">hide</div><div class="stack looks">go to front</div><div class="stack looks">switch costume to <div class="dropdown">ship1</div></div><div class="stack motion">go to x: <div class="number">0</div> y: <div class="number">190</div></div><div class="stack motion">point in direction <div class="number-dropdown">90</div></div><div class="stack sound">set volume to <div class="reporter variables">sound volume</div> %</div><div class="stack sound">play sound <div class="dropdown">approach</div></div><div class="stack control">wait <div class="number">0.5</div> secs</div><div class="stack looks">show</div><div class="stack motion">glide <div class="number">2</div> secs to x: <div class="number">0</div> y: <div class="number">10</div></div><div class="stack events">broadcast <div class="dropdown">pull up</div></div><div class="stack motion">glide <div class="number">0.5</div> secs to x: <div class="number">0</div> y: <div class="number">0</div></div><div class="stack variables">change <div class="dropdown">state</div> by <div class="number">1</div></div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">enter stage</div></div><div class="stack looks">say <div class="embedded operators">join <div class="string">Stage </div> <div class="reporter variables">stage</div></div> for <div class="number">3</div> secs</div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">pull up</div></div><div class="cwrap"><div class="stack control cstart">repeat <div class="number">3</div></div><div class="cmouth control"><div class="stack looks">next costume</div><div class="stack control">wait <div class="number">0.1</div> secs</div></div><div class="stack control cend"></div></div></div>
+</div></pre>
+
+</body></html>

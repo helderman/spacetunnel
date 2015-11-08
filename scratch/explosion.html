@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf8">
+<title>Explosion</title>
+
+<!--
+http://scratchblocks.github.io/generator/
+
+Copyright 2013, Tim Radvan
+@license MIT
+http://opensource.org/licenses/MIT
+-->
+
+<link rel="stylesheet" href="scratchblocks2/scratchblocks2.css">
+
+</head><body>
+<h1>Explosion</h1>
+
+Variables:
+<ul>
+<li>speed</li>
+</ul>
+
+<p>
+<img src="../gimp/explosion.png" />
+</p>
+
+<div>
+<a href="http://scratchblocks.github.io/#when%20flag%20clicked%0Ahide%0Arepeat%20(39)%0A%20%20%20%20initialize%0A%20%20%20%20create%20clone%20of%20%5Bmyself%20v%5D%0Aend%0Ainitialize%0A%0A%0Adefine%20initialize%0Apoint%20in%20direction%20(pick%20random%20(0)%20to%20(360))%0Aset%20%5Bspeed%20v%5D%20to%20(pick%20random%20(60)%20to%20(300))%0A%0A%0Awhen%20I%20receive%20%5Bpaint%20v%5D%0Aif%20%3C(state)%20%3D%20%5B5%5D%3E%20then%0A%20%20%20%20move%20((speed)%20*%20((time)%20-%20(last%20time)))%20steps%0Aend%0A%0A%0Awhen%20I%20receive%20%5Bexplode%20v%5D%0Aset%20%5Bbrightness%20v%5D%20effect%20to%20(100)%0Aset%20%5Bghost%20v%5D%20effect%20to%20(0)%0Ago%20to%20x%3A(0)%20y%3A(0)%0Ago%20to%20front%0Ashow%0Arepeat%20(10)%0A%20%20%20%20wait%20(0.1)%20secs%0A%20%20%20%20change%20%5Bbrightness%20v%5D%20effect%20by%20(-10)%0Aend%0Arepeat%20(10)%0A%20%20%20%20wait%20(0.1)%20secs%0A%20%20%20%20change%20%5Bghost%20v%5D%20effect%20by%20(10)%0Aend%0Ahide">Scratchblocks URL</a>
+</div>
+<div>
+<a href="explosion.txt">Scratchblocks generated textual code</a>
+</div>
+
+<pre class="blocks"><div class="sb2">
+<div class="script"><div class="hat events">when <span class="green-flag"><span></span></span> clicked</div><div class="stack looks">hide</div><div class="cwrap"><div class="stack control cstart">repeat <div class="number">39</div></div><div class="cmouth control"><div class="stack custom">initialize</div><div class="stack control">create clone of <div class="dropdown">myself</div></div></div><div class="stack control cend"></div></div><div class="stack custom">initialize</div></div>
+<div class="script"><div class="define-hat custom">define<div class="outline">initialize</div></div><div class="stack motion">point in direction <div class="embedded operators">pick random <div class="number">0</div> to <div class="number">360</div></div></div><div class="stack variables">set <div class="dropdown">speed</div> to <div class="embedded operators">pick random <div class="number">60</div> to <div class="number">300</div></div></div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">paint</div></div><div class="cwrap"><div class="stack control cstart">if <div class="boolean operators"><div class="reporter variables">state</div> = <div class="string">5</div></div> then</div><div class="cmouth control"><div class="stack motion">move <div class="embedded operators"><div class="reporter variables">speed</div> * <div class="embedded operators"><div class="reporter variables">time</div> - <div class="reporter variables">last time</div></div></div> steps</div></div><div class="stack control cend"></div></div></div>
+<div class="script"><div class="hat events">when I receive <div class="dropdown">explode</div></div><div class="stack looks">set <div class="dropdown">brightness</div> effect to <div class="number">100</div></div><div class="stack looks">set <div class="dropdown">ghost</div> effect to <div class="number">0</div></div><div class="stack motion">go to x: <div class="number">0</div> y: <div class="number">0</div></div><div class="stack looks">go to front</div><div class="stack looks">show</div><div class="cwrap"><div class="stack control cstart">repeat <div class="number">10</div></div><div class="cmouth control"><div class="stack control">wait <div class="number">0.1</div> secs</div><div class="stack looks">change <div class="dropdown">brightness</div> effect by <div class="number">-10</div></div></div><div class="stack control cend"></div></div><div class="cwrap"><div class="stack control cstart">repeat <div class="number">10</div></div><div class="cmouth control"><div class="stack control">wait <div class="number">0.1</div> secs</div><div class="stack looks">change <div class="dropdown">ghost</div> effect by <div class="number">10</div></div></div><div class="stack control cend"></div></div><div class="stack looks">hide</div></div>
+</div></pre>
+
+</body></html>

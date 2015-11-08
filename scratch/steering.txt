@@ -1,0 +1,138 @@
+Steering
+
+
+when flag clicked
+delete (all v) of [mouse x v]
+delete (all v) of [mouse y v]
+forever
+    wait until <mouse down?>
+    add (mouse x) to [mouse x v]
+    add (mouse y) to [mouse y v]
+    wait until <not <mouse down?>>
+    add (mouse x) to [mouse x v]
+    add (mouse y) to [mouse y v]
+end
+
+
+when I receive [clear tunnel v]
+go to x:(0) y:(0)
+go to front
+
+
+when [up arrow v] key pressed
+if <not <(up) < [0]>> then
+    change [up v] by ((0) - (timer))
+    wait until <not <key [up arrow v] pressed?>>
+    change [up v] by (timer)
+end
+
+
+when [left arrow v] key pressed
+if <not <(left) < [0]>> then
+    change [left v] by ((0) - (timer))
+    wait until <not <key [left arrow v] pressed?>>
+    change [left v] by (timer)
+end
+
+
+when [right arrow v] key pressed
+if <not <(right) < [0]>> then
+    change [right v] by ((0) - (timer))
+    wait until <not <key [right arrow v] pressed?>>
+    change [right v] by (timer)
+end
+
+
+when [down arrow v] key pressed
+if <not <(down) < [0]>> then
+    change [down v] by ((0) - (timer))
+    wait until <not <key [down arrow v] pressed?>>
+    change [down v] by (timer)
+end
+
+
+when I receive [steering v]
+user controls ((time) - (last time)) ((left) mod (time)) ((right) mod (time)) ((up) mod (time)) ((down) mod (time))
+
+
+define user controls (duration) (left) (right) (up) (down)
+change [left v] by ((0) - (left))
+change [right v] by ((0) - (right))
+change [up v] by ((0) - (up))
+change [down v] by ((0) - (down))
+sample mouse movement
+if <(state) = [4]> then
+    steer x (((100) * ((keyboard x) * ((right) - (left)))) + ((0.6) * ((mouse drag x) * (mouse move x)))) roll off by (duration) but stop at ((0.4) * ((mouse follow x) * (mouse x)))
+    steer y (((100) * ((keyboard y) * ((up) - (down)))) + ((0.6) * ((mouse drag y) * (mouse move y)))) roll off by (duration) but stop at ((0.4) * ((mouse follow y) * (mouse y)))
+    change [ship direction x v] by ((2) * ((duration) * (x position)))
+    change [ship direction y v] by ((2) * ((duration) * (y position)))
+end
+change [ship position x v] by ((duration) * (ship direction x))
+change [ship position y v] by ((duration) * (ship direction y))
+
+
+define steer y (steer) roll off by (roll off) but stop at (stop)
+if <(steer) = [0]> then
+    if <(y position) < (stop)> then
+        change y by ((200) * (roll off))
+        if <(y position) > (stop)> then
+            set y to (stop)
+        end
+    else
+        change y by ((-200) * (roll off))
+        if <(y position) < (stop)> then
+            set y to (stop)
+        end
+    end
+else
+    change y by (steer)
+end
+if <([abs v] of (y position)) > [100]> then
+    set y to ((100) * ((y position) / ([abs v] of (y position))))
+end
+
+
+define steer x (steer) roll off by (roll off) but stop at (stop)
+if <(steer) = [0]> then
+    if <(x position) < (stop)> then
+        change x by ((200) * (roll off))
+        if <(x position) > (stop)> then
+            set x to (stop)
+        end
+    else
+        change x by ((-200) * (roll off))
+        if <(x position) < (stop)> then
+            set x to (stop)
+        end
+    end
+else
+    change x by (steer)
+end
+if <([abs v] of (x position)) > [100]> then
+    set x to ((100) * ((x position) / ([abs v] of (x position))))
+end
+
+
+define sample mouse movement
+if <(length of [mouse x v]) > [0]> then
+    if <(length of [mouse x v]) > [1]> then
+        set [mouse move x v] to ((item (2 v) of [mouse x v]) - (item (1 v) of [mouse x v]))
+        set [mouse move y v] to ((item (2 v) of [mouse y v]) - (item (1 v) of [mouse y v]))
+        delete (1 v) of [mouse x v]
+        delete (1 v) of [mouse y v]
+        delete (1 v) of [mouse x v]
+        delete (1 v) of [mouse y v]
+    else
+        continue mouse down (mouse x) (mouse y)
+    end
+else
+    set [mouse move x v] to [0]
+    set [mouse move y v] to [0]
+end
+
+
+define continue mouse down (x) (y)
+set [mouse move x v] to ((x) - (item (1 v) of [mouse x v]))
+set [mouse move y v] to ((y) - (item (1 v) of [mouse y v]))
+replace item (1 v) of [mouse x v] with (x)
+replace item (1 v) of [mouse y v] with (y)
