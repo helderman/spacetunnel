@@ -9,7 +9,7 @@ To play:
 
 To view the source code:
 
-- https://rawgit.com/helderman/spacetunnel/master/index.html
+- https://rawgit.com/helderman/spacetunnel/master/scratch/index.html
 - http://scratchblocks.github.io/generator/#project=45921906
 
 ## i-mode (2006)
