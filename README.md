@@ -2,6 +2,8 @@
 
 ## Scratch (2015)
 
+![Thumbnail](scratch/thumbnail.png)
+
 To play:
 
 - https://scratch.mit.edu/projects/45921906/
@@ -19,6 +21,8 @@ Source code:
 - https://github.com/helderman/spacetunnel/tree/master/android
 
 ## i-mode (2006) and Java Applet (2007)
+
+![Screenshot](i-mode/screenshot/st0.gif)
 
 Web site:
 

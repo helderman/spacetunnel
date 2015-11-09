@@ -17,23 +17,23 @@ http://opensource.org/licenses/MIT
 </head><body>
 <h1>Stage</h1>
 
-Variables:
+Variables (globals):
 <ul>
-<li>HIGH SCORE</li>
-<li>SCORE</li>
+<li>HIGH SCORE &mdash; initial value = 628</li>
+<li>SCORE &mdash; initial value = 0</li>
 <li>front hoop</li>
-<li>keyboard x</li>
-<li>keyboard y</li>
+<li>keyboard x &mdash; initial value = 4</li>
+<li>keyboard y &mdash; initial value = 4 (planning on changing this to &minus;4)</li>
 <li>last time</li>
-<li>mouse drag x</li>
-<li>mouse drag y</li>
-<li>mouse follow x</li>
-<li>mouse follow y</li>
+<li>mouse drag x &mdash; initial value = 4</li>
+<li>mouse drag y &mdash; initial value = 4</li>
+<li>mouse follow x &mdash; initial value = 0</li>
+<li>mouse follow y &mdash; initial value = 0</li>
 <li>ship direction x</li>
 <li>ship direction y</li>
 <li>ship position x</li>
 <li>ship position y</li>
-<li>sound volume</li>
+<li>sound volume &mdash; initial value = 100</li>
 <li>stage</li>
 <li>state</li>
 <li>time</li>
@@ -45,8 +45,15 @@ Variables:
 <li>tunnel position y</li>
 </ul>
 <p>
-The first two variables have been made visible;
+The first two variables are permanently visible;
 SCORE at the top left, HIGH SCORE at the top right.
+</p>
+<p>
+The other 7 variables with an 'initial value' start off hidden,
+but are shown as soon as the user clicks sprite
+<a href="setup.html">setup</a>.
+These are sliders ranging from &minus;9 to +9,
+except for volume, which ranges from 0 to +100.
 </p>
 
 <div>

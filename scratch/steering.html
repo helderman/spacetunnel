@@ -49,6 +49,13 @@ You may decide to unhide it for debugging purposes.
 <a href="steering.txt">Scratchblocks generated textual code</a>
 </div>
 
+<p>
+Note:
+planning on setting the four variables down, left, right, up to zero
+at the start of the first code block below,
+to prevent the ship swerving off when restarting the project.
+</p>
+
 <pre class="blocks"><div class="sb2">
 <div class="script"><div class="hat events">when <span class="green-flag"><span></span></span> clicked</div><div class="stack list">delete <div class="number-dropdown">all</div> of <div class="dropdown">mouse x</div></div><div class="stack list">delete <div class="number-dropdown">all</div> of <div class="dropdown">mouse y</div></div><div class="cwrap cap"><div class="stack control cstart">forever</div><div class="cmouth control"><div class="stack control">wait until <div class="boolean sensing">mouse down?</div></div><div class="stack list">add <div class="reporter sensing">mouse x</div> to <div class="dropdown">mouse x</div></div><div class="stack list">add <div class="reporter sensing">mouse y</div> to <div class="dropdown">mouse y</div></div><div class="stack control">wait until <div class="boolean operators">not <div class="boolean sensing">mouse down?</div></div></div><div class="stack list">add <div class="reporter sensing">mouse x</div> to <div class="dropdown">mouse x</div></div><div class="stack list">add <div class="reporter sensing">mouse y</div> to <div class="dropdown">mouse y</div></div></div><div class="stack control cend"></div></div></div>
 <div class="script"><div class="hat events">when I receive <div class="dropdown">clear tunnel</div></div><div class="stack motion">go to x: <div class="number">0</div> y: <div class="number">0</div></div><div class="stack looks">go to front</div></div>
